@@ -51,12 +51,14 @@ left: 40px;
 height: 35px;
 }
 
+
 .textbox /* parent element er disse målninger taget fra*/
 {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); /*i forhold til selve elementet*/
+    text-align: center;
 }
 
 
@@ -64,6 +66,9 @@ height: 35px;
 {
     color: white;
     text-transform: uppercase;
+
+    backface-visibility: hidden;
+    margin-bottom: 60px;
 
 }
 
@@ -87,8 +92,7 @@ display: block;
 font-size: 20px;
 font-weight: 700;
 letter-spacing: 17.4px;
-animation: moveInRight;
-animation-duration: 1s ease-out;
+animation: moveInRight 1s ease-out; /* fejl rettet */
 
 }
 
@@ -121,4 +125,54 @@ animation-duration: 1s ease-out;
        opacity: 1;
        transform: translate(0);
     }
+    
+}
+
+.btn:link,
+.btn:visited {
+
+text-transform: uppercase;
+text-decoration: none;
+padding: 15px 40px;
+display: inline-block;
+border-radius: 100px;
+transition: all .2;
+position: relative;
+}
+
+.btn:hover{
+    transform: translateY(-3px); /* minus bruges til at flytte ting 'op' fra siden*/
+    box-shadow: 0 10px 20px rgba(255, 253, 253, 0.2);
+}
+
+.btn:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white{
+background-color: white;
+color: #777;
+}
+
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;  
+}
+.btn-white::after{
+background-color: white;
+}
+
+.btn:hover::after{
+    transform: scalex(1.2) scaleY(1.5); /*eget valg inden det blev sagt i video*/
+    opacity: 0;
+
 }
