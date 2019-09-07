@@ -1,44 +1,20 @@
-/*
-COLORS:
+/*har stadig mit style.css som back-up*/
 
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-har stadig mit style.css som back-up
-*/
+@import "abstract/functions";
+@import "abstract/mixins";
+@import "abstract/variables";
+
+@import "base/animations";
+@import "base/typography";
+@import "base/base";
+@import "base/utilities";
+@import "components/button";
 
 
-$color-primary: #55c57a;
-$color-primary-light: #7ed56f;
-$color-primary-dark:#28b485;
-$color-grey-dark:#777;
-$color-white: #fff;
-$color-black: #000;
+@import "layout/header";
+@import "layout/grid";
 
-*,
-*::after
-*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    /*Det her med rem er besværligt - skal ses mere*/
-}
-
-html{
-    font-size: 62.5%; /*bedst at sætte den til % istedet for px - scaling for forskellige brugere*/
-} /* 10 dividret med 16*/
-
-body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7;
-    color: $color-grey-dark;
-    padding: 3rem;
-    box-sizing: border-box;
-
-}
-
+@import "pages/home"; /*semikolon!*/
 .header 
 {
     height: 95vh;
@@ -111,104 +87,3 @@ letter-spacing: 1.74rem;
 animation: moveInRight 1s ease-out; /* fejl rettet */
 
 }
-
-@keyframes moveInLeft {
-    0%{
-       opacity: 0;
-       transform: translateX(-10rem);  
-    }
-
-    80%{
-        transform: translateX(1rem);
-    }
-
-    100%{
-       opacity: 1;
-       transform: translate(0);
-    }
-}
-@keyframes moveInRight {
-    0%{
-       opacity: 0;
-       transform: translateX(10rem);  
-    }
-
-    80%{
-        transform: translateX(-1rem);
-    }
-
-    100%{
-       opacity: 1;
-       transform: translate(0);
-    }
-
-
-    
-}
-
-@keyframes moveInBottom{
-    0%{
-        opacity: 0;
-        transform: translateY(10rem);
-    }
-
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-.btn:link,
-.btn:visited {
-
-text-transform: uppercase;
-text-decoration: none;
-padding: 1.5rem 4rem;
-display: inline-block;
-border-radius: 10rem;
-transition: all .2;
-position: relative;
-font-size: 1.6rem;
-}
-
-.btn:hover{
-    transform: translateY(-3px); /* minus bruges til at flytte ting 'op' fra siden*/
-    box-shadow: 0 1rem 2rem rgba(255, 253, 253, 0.2);
-}
-
-.btn:active{
-    transform: translateY(-1px); /*Husk på almindelige K-systemer! Minus Y går op*/
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-}
-
-.btn--white{
-background-color: white;
-color:$color-grey-dark;
-}
-
-.btn::after{
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;  
-}
-.btn--white::after{
-background-color: white;
-}
-
-.btn:hover::after{
-    transform: scalex(1.2) scaleY(1.5); /*eget valg inden det blev sagt i video*/
-    opacity: 0;
-
-}
-.btn--animated{
-    animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards; 
-}
-/*Check din codepen.io*/
